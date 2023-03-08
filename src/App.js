@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 import Chat from "./components/Chat";
 import SignIn from "./components/SignIn";
 import {auth} from './firebase'
