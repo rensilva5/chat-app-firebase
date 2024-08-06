@@ -24,7 +24,7 @@ function SendMessage({ scroll }) {
     <div>
       <form onSubmit={sendMessage}>
         <Input
-          placeholder="Message"
+          placeholder="Type here"
           value={msg}
           onChange={(e) => setMsg(e.target.value)}
         ></Input>
