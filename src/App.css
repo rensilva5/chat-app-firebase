@@ -62,7 +62,7 @@ form {
   width: 99%;
   align-items: center;
   display: grid;
-  padding: 0 15px;
+  padding: 10px 15px;
 }
 
 form button {
@@ -125,7 +125,7 @@ p {
   border-radius: 25px;
   position: relative;
   color: white;
-  text-align: center;
+  text-align: left;
 }
 
 .message {
@@ -151,7 +151,7 @@ p {
 img {
   border-radius: 50%;
   height: 45px;
-  margin-top: -20px;
+  /* margin-top: -7px; */
   border: 2px solid black;
 }
 
@@ -176,20 +176,19 @@ p {
 }
 
 .sent {
-  /* background-color: #395dff; */
   color: white;
-  border-top-right-radius: 1000px;
+  border-top-right-radius: 2700px;
   flex-direction: row-reverse;
-  padding: 20px 20px 0 10px;
+  padding: 10px 20px;
   text-align: end;
   float: right;
 }
 
 .received {
-  border: 1px solid lightgray;
-  /* background-color: #FAFAFA; */
-  border-top-left-radius: 1000px;
+  /* border: 1px solid lightgray; */
+  border-top-left-radius: 2700px;
   float: left;
+  padding: 10px 20px;
 }
 
 .sendMsg {
