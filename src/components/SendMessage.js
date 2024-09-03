@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import { Button, Input } from "@mui/material";
+import React, { useRef, useState } from "react";
 import { auth, db } from "../firebase";
-import firebase from "firebase/app";
+import firebase from "firebase/compat/app";
 import Webcam from "react-webcam";
 
 function SendMessage({ scroll }) {
@@ -9,7 +10,7 @@ function SendMessage({ scroll }) {
   const [showWebcam, setShowWebcam] = useState(false);
   const webcamRef = useRef(null);
 
-  const sendMessage = async (e) => {
+  async function sendMessage(e) {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
 
@@ -34,11 +35,9 @@ function SendMessage({ scroll }) {
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       });
     }
-
     setMsg("");
     scroll.current.scrollIntoView({ behavior: "smooth" });
-  };
-
+  }
   const captureImage = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImage(imageSrc);
@@ -48,13 +47,12 @@ function SendMessage({ scroll }) {
   return (
     <div>
       <form onSubmit={sendMessage}>
-        <input
+        <Input
+          placeholder="Type here"
           value={msg}
           onChange={(e) => setMsg(e.target.value)}
-          placeholder="Message"
-        />
-
-        <input
+        ></Input>
+        <Input
           type="file"
           onChange={(e) => setImage(e.target.files[0])}
           accept="image/*"
@@ -67,17 +65,16 @@ function SendMessage({ scroll }) {
               ref={webcamRef}
               screenshotFormat="image/jpeg"
             />
-            <button type="button" onClick={captureImage}>
+            <Button type="button" onClick={captureImage}>
               Capture
-            </button>
+            </Button>
           </div>
         )}
 
-        <button type="button" onClick={() => setShowWebcam(!showWebcam)}>
+        <Button type="button" onClick={() => setShowWebcam(!showWebcam)}>
           {showWebcam ? "Cancel" : "Open Webcam"}
-        </button>
-
-        <button type="submit">Send</button>
+        </Button>
+        <Button type="submit">Send</Button>
       </form>
     </div>
   );
