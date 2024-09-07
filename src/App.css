@@ -61,7 +61,7 @@ form {
   background-color: white;
   width: 99%;
   align-items: center;
-  display: grid;
+  /* display: grid; */
   padding: 10px 15px;
 }
 

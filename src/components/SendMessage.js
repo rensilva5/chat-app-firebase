@@ -15,7 +15,6 @@ function SendMessage({ scroll }) {
     const { uid, photoURL } = auth.currentUser;
 
     if (image) {
-      // Upload the image to Firebase Storage and get the download URL
       const imageRef = firebase.storage().ref(`images/${image.name}`);
       await imageRef.put(image);
       const imageUrl = await imageRef.getDownloadURL();
